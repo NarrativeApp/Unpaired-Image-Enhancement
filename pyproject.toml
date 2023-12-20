@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "unpaired-image-enhancement"
+version = "0.1.0"
+description = ""
+authors = ["Satoshi Kosugi <kosugi@hal.t.u-tokyo.ac.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+chainer = "^7"
+chainerrl = "0.6"
+PyYAML = "*"
+matplotlib = "*"
+opencv-python = "*"
+numpy = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

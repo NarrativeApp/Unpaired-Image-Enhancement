@@ -32,7 +32,7 @@ def main():
 
     # load yaml config file
     with open(args.config) as f:
-        config = yaml.load(f)
+        config = yaml.unsafe_load(f)
 
     # set random seed
     misc.set_random_seed(config['seed'])

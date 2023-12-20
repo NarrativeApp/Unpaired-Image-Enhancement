@@ -235,3 +235,7 @@ tags
 
 
 # End of https://www.gitignore.io/api/vim,macos,emacs,python,visualstudiocode
+
+*.tif
+.idea/
+logs/
