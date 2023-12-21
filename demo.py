@@ -119,5 +119,6 @@ def main(file_name):
 
 if __name__ == '__main__':
     files = glob.glob('fivek_dataset/original' + '/*.tif')
-    for file in files:
+    for i, file in enumerate(files):
+        print(f'=====> inferring edit parameters for {i + 1} of {len(files)} files');
         main(file)
