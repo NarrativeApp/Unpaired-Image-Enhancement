@@ -1,4 +1,5 @@
 import argparse
+import glob
 import logging
 import os
 # This prevents numpy from using multiple threads
@@ -18,13 +19,12 @@ from chainer_spiral.utils.arg_utils import print_args
 
 
 
-def main():
+def main(file_name):
     parser = argparse.ArgumentParser()
     parser.add_argument('config', help='YAML config file')
     parser.add_argument('--profile', action='store_true')
     parser.add_argument('--load_generator', type=str, default='')
     parser.add_argument('--logger_level', type=int, default=logging.INFO)
-    parser.add_argument('--file_name', type=str, default='')
     args = parser.parse_args()
     print_args(args)
 
@@ -46,7 +46,7 @@ def main():
             env = PhotoEnhancementEnvDemo(batch_size=1,
                              max_episode_steps=config['max_episode_steps'],
                              imsize=config['imsize'],
-                             file_name=args.file_name)
+                             file_name=file_name)
             return env
 
         sample_env = make_env(0, True)
@@ -118,4 +118,6 @@ def main():
             max_episode_len=1)
 
 if __name__ == '__main__':
-    main()
+    files = glob.glob('fivek_dataset/original' + '/*.tif')
+    for file in files:
+        main(file)

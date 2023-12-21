@@ -64,13 +64,10 @@ python test.py settings/photo_enhancement.yaml logs --result_dir logs/20200115T2
 ### 3. If you want to try the framework, you can use the demo code and the trained model.
 
 ```Shell
-python demo.py settings/photo_enhancement.yaml --load_generator generator_weights_for_demo.npz --file_name $image_name
+python demo.py settings/photo_enhancement.yaml --load_generator <GENERATOR_WEIGHTS>
 ```
 
-The following windows will be displayed.
-<p align="left">
-<img src="images/demo.png" alt="demo" width="800px">
-</p>
+This will generate edit parameters for all files in the `fivek_dataset/original` folder. The generated parameters for each file will be saved to `{file_name}.edit.json` in the same folder.
 
 ## Reference
 Our implementation is based on [chainer_spiral](https://github.com/DwangoMediaVillage/chainer_spiral). We would like to thank them.

@@ -1,3 +1,4 @@
+import json
 import sys
 
 import gym
@@ -246,7 +247,11 @@ class PhotoEnhancementEnvDemo(PhotoEnhancementEnvTest):
 
         if done:
             for i in range(self.batch_size):
-                edit_demo(self.original_original_images[i] * 255, clipped_action[i])
+                parameter_file_path = f'{self.file_names[0]}.edit.json'
+                parameter_values = clipped_action[i].tolist()
+                print(f"saving {parameter_values} to '{parameter_file_path}'")
+                with open(parameter_file_path, 'w') as f:
+                    json.dump(parameter_values, f)
 
         ob = {
             'images': self._get_rgb_array()
